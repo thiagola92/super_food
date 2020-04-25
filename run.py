@@ -3,6 +3,10 @@ import time
 
 from selenium.webdriver import Chrome
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.headless = True
 
 cwd = os.getcwd() + '/chromedriver'
 
@@ -45,7 +49,7 @@ def check_whole_food():
   print('\x1b[41m\x1b[97m NOT AVAILABLE \x1b[99m\x1b[49m')
   return False
 
-with Chrome(executable_path=cwd) as driver:
+with Chrome(executable_path=cwd, options=options) as driver:
   wait = WebDriverWait(driver, 10)
 
   login()

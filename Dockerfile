@@ -5,6 +5,9 @@ WORKDIR /tmp
 ADD requirements.txt .
 RUN pip install -r requirements.txt
 
+RUN apt update
+RUN apt install vim -y
+
 ADD . .
 
-ENTRYPOINT ["python", "/tmp/run.py"]
+ENTRYPOINT ["bash"]
